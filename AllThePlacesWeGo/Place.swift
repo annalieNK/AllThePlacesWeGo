@@ -25,6 +25,8 @@ class Place: Identifiable, Codable, Equatable, ObservableObject {
     
     var urlImageString: String
     
+    //var webLinks: [WebLink]
+    
     var symbol: String {
         switch tag {
         case "beach": return "beach.umbrella.fill"
@@ -50,7 +52,7 @@ class Place: Identifiable, Codable, Equatable, ObservableObject {
     // prevent this property to be changed outside this file (through the use of the toggle function)
     fileprivate(set) var isContacted = false
     
-    init(latitude: Double, longitude: Double, locationName: String, tag: String, urlImageString: String) {
+    init(latitude: Double, longitude: Double, locationName: String, tag: String, urlImageString: String) { //, webLinks: [WebLink]
         self.id = UUID()
         
         self.latitude = latitude
@@ -58,9 +60,11 @@ class Place: Identifiable, Codable, Equatable, ObservableObject {
         self.locationName = locationName
         self.tag = tag
         self.urlImageString = urlImageString
+        
+        //self.webLinks = webLinks
     }
     
-    static let example = Place(latitude: 38.0, longitude: -124.0, locationName: "Home", tag: "personal", urlImageString: "https://hws.dev/img/logo.png")
+    static let example = Place(latitude: 38.0, longitude: -124.0, locationName: "Home", tag: "personal", urlImageString: "https://hws.dev/img/logo.png") 
     
     // write a comparison function to make sure locations are unique (according to the Identifiable and Equatable protocols)
     static func ==(lhs: Place, rhs: Place) -> Bool {
