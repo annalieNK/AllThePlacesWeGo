@@ -6,19 +6,38 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
+    // Create and store a single instance of the Prospect class
+    @StateObject var places = Places()
+    //@StateObject var favorites = Favorites()
+    @State private var isButtonDisabled = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            MapLayout(searchModel: SearchViewModel())
+                .tabItem {
+                    Label("Map", systemImage: "map")
+                }
+            PlacesView(filter: .uncontacted)
+                .tabItem {
+                    Label("Uncontacted", systemImage: "questionmark.diamond")
+                }
+            PlacesView(filter: .contacted)
+                .tabItem {
+                    Label("Contacted", systemImage: "checkmark.circle")
+                }
         }
-        .padding()
+        // Add the prospects object to all views inside TabView
+        .environmentObject(places)
+        //.environmentObject(favorites)
+        //.environmentObject(Favorites())
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
