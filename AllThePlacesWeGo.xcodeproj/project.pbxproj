@@ -28,6 +28,10 @@
 		3453660D2ADF12C400A709AA /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3453660C2ADF12C400A709AA /* ClearButton.swift */; };
 		3453660F2ADF12DB00A709AA /* Map-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3453660E2ADF12DB00A709AA /* Map-Modifier.swift */; };
 		345366112ADF12F100A709AA /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345366102ADF12F100A709AA /* FileManager-DocumentsDirectory.swift */; };
+		345366152ADF280900A709AA /* PlacesViewNV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345366142ADF280900A709AA /* PlacesViewNV.swift */; };
+		345366172ADF2ABC00A709AA /* DetailViewNV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345366162ADF2ABC00A709AA /* DetailViewNV.swift */; };
+		345366192ADF2BAE00A709AA /* PlacesViewV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345366182ADF2BAE00A709AA /* PlacesViewV.swift */; };
+		3453661B2ADF2BF400A709AA /* DetailViewV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3453661A2ADF2BF400A709AA /* DetailViewV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,10 @@
 		3453660C2ADF12C400A709AA /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		3453660E2ADF12DB00A709AA /* Map-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Map-Modifier.swift"; sourceTree = "<group>"; };
 		345366102ADF12F100A709AA /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
+		345366142ADF280900A709AA /* PlacesViewNV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewNV.swift; sourceTree = "<group>"; };
+		345366162ADF2ABC00A709AA /* DetailViewNV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewNV.swift; sourceTree = "<group>"; };
+		345366182ADF2BAE00A709AA /* PlacesViewV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewV.swift; sourceTree = "<group>"; };
+		3453661A2ADF2BF400A709AA /* DetailViewV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +102,12 @@
 				3453660A2ADF12B400A709AA /* AddressResult.swift */,
 				345365E32ADF0D7800A709AA /* ContentView.swift */,
 				345365F62ADF0FA500A709AA /* PlacesView.swift */,
+				345366142ADF280900A709AA /* PlacesViewNV.swift */,
+				345366182ADF2BAE00A709AA /* PlacesViewV.swift */,
 				345365FE2ADF11A200A709AA /* AddView.swift */,
 				345365FA2ADF10A700A709AA /* DetailView.swift */,
+				345366162ADF2ABC00A709AA /* DetailViewNV.swift */,
+				3453661A2ADF2BF400A709AA /* DetailViewV.swift */,
 				345366082ADF129900A709AA /* SearchViewModel.swift */,
 				345366002ADF11F500A709AA /* MapViewModel.swift */,
 				345366062ADF125100A709AA /* SearchView.swift */,
@@ -191,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				345365FD2ADF116A00A709AA /* URLimagePicker.swift in Sources */,
+				345366152ADF280900A709AA /* PlacesViewNV.swift in Sources */,
 				345365F72ADF0FA500A709AA /* PlacesView.swift in Sources */,
 				345366052ADF122200A709AA /* AddressRow.swift in Sources */,
 				3453660D2ADF12C400A709AA /* ClearButton.swift in Sources */,
@@ -202,11 +215,14 @@
 				345366092ADF129900A709AA /* SearchViewModel.swift in Sources */,
 				345366032ADF120F00A709AA /* AnnotationItem.swift in Sources */,
 				345365F32ADF0F4600A709AA /* Favorites.swift in Sources */,
+				345366172ADF2ABC00A709AA /* DetailViewNV.swift in Sources */,
 				345366012ADF11F500A709AA /* MapViewModel.swift in Sources */,
 				345366112ADF12F100A709AA /* FileManager-DocumentsDirectory.swift in Sources */,
 				345365F92ADF104600A709AA /* MapLayout.swift in Sources */,
 				345366072ADF125100A709AA /* SearchView.swift in Sources */,
 				345365E42ADF0D7800A709AA /* ContentView.swift in Sources */,
+				3453661B2ADF2BF400A709AA /* DetailViewV.swift in Sources */,
+				345366192ADF2BAE00A709AA /* PlacesViewV.swift in Sources */,
 				345365F52ADF0F8300A709AA /* View-LocationStyling.swift in Sources */,
 				345365E22ADF0D7800A709AA /* AllThePlacesWeGoApp.swift in Sources */,
 			);

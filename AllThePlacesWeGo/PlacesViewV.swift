@@ -1,5 +1,5 @@
 //
-//  PlacesView.swift
+//  PlacesViewV.swift
 //  AllThePlacesWeGo
 //
 //  Created by Annalie Kruseman on 10/17/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct PlacesView: View {
+struct PlacesViewV: View {
     
     // Find the object, attach it to a property, and keep it up to date over time
     @EnvironmentObject var places: Places
@@ -21,7 +21,7 @@ struct PlacesView: View {
     @State private var filterTag = FilterTag.default
     
     enum FilterType {
-        case none, contacted, uncontacted
+        case none, visited, notvisited
     }
     
     enum FilterTag {
@@ -43,7 +43,7 @@ struct PlacesView: View {
                     
                     VStack(alignment: .leading) {
                         NavigationLink {
-                            DetailView(place: place)
+                            DetailViewNV(place: place)
                         } label: {
                             HStack {
                                 Text(place.locationName)
@@ -153,11 +153,11 @@ struct PlacesView: View {
     var title: String {
         switch filter {
         case .none:
-            return "Everyone"
-        case .contacted:
-            return "Contacted people"
-        case .uncontacted:
-            return "Uncontacted people"
+            return "All places"
+        case .visited:
+            return "Visited Places"
+        case .notvisited:
+            return "Not Visited Places"
         }
     }
     
@@ -165,9 +165,9 @@ struct PlacesView: View {
         switch filter {
         case .none:
             return places.people
-        case .contacted:
+        case .visited:
             return places.people.filter { $0.isVisited }
-        case .uncontacted:
+        case .notvisited:
             return places.people.filter { !$0.isVisited }
         }
     }
@@ -202,9 +202,9 @@ struct PlacesView: View {
     }
 }
 
-struct PlacesView_Previews: PreviewProvider {
+struct PlacesViewV_Previews: PreviewProvider {
     static var previews: some View {
-        PlacesView(filter: .none)
+        PlacesViewV(filter: .none)
             .environmentObject(Places())
     }
 }

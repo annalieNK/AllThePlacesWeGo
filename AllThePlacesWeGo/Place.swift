@@ -50,7 +50,7 @@ class Place: Identifiable, Codable, Equatable, ObservableObject {
     }
         
     // prevent this property to be changed outside this file (through the use of the toggle function)
-    fileprivate(set) var isContacted = false
+    fileprivate(set) var isVisited = false
     
     init(latitude: Double, longitude: Double, locationName: String, tag: String, urlImageString: String) { //, webLinks: [WebLink]
         self.id = UUID()
@@ -148,7 +148,7 @@ class Place: Identifiable, Codable, Equatable, ObservableObject {
     
     func toggle(_ place: Place) {
         objectWillChange.send()
-        place.isContacted.toggle()
+        place.isVisited.toggle()
         save()
     }
 }

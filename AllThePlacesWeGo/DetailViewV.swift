@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  DetailViewV.swift
 //  AllThePlacesWeGo
 //
 //  Created by Annalie Kruseman on 10/17/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct DetailView: View {
+struct DetailViewV: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.openURL) var openURL
     
@@ -42,10 +42,10 @@ struct DetailView: View {
                     Text("Image not available")
                 }
                 
-                Button("Visit Apple") {
-                    //openURL(URL(string: "https://www.apple.com")!)
-                    UIApplication.shared.open(URL(string: "https://www.apple.com")!)
-                }
+//                Button("Visit Apple") {
+//                    //openURL(URL(string: "https://www.apple.com")!)
+//                    UIApplication.shared.open(URL(string: "https://www.apple.com")!)
+//                }
                 
                 Map(coordinateRegion: .constant(MKCoordinateRegion(
                     center: place.coordinate,
@@ -94,22 +94,20 @@ struct DetailView: View {
                             }) {
                                 Text("Add image")
                             }
-                            Button(action: {
-                                
-                            }) {
-                                Text("Add link")
+//                            Button(action: {
+//
+//                            }) {
+//                                Text("Add link")
+//                            }
+                        Button(favorites.contains(place) ? "Remove from Favorites" : "Add to Favorites") {
+                            if favorites.contains(place) {
+                                favorites.remove(place)
+                            } else {
+                                favorites.add(place)
                             }
-                            // create a button to add to or remove from Favorites
-                            Button(favorites.contains(place) ? "Remove from Favorites" : "Add to Favorites") {
-                                if favorites.contains(place) {
-                                    favorites.remove(place)
-                                } else {
-                                    favorites.add(place)
-                                }
-                            }
-                            .disabled(place.isVisited == false)
+                        }
                         } label: {
-                            Text("Edit")
+                            Text("Edit").foregroundColor(.blue)
                         }
                     }
                 }
@@ -122,20 +120,13 @@ struct DetailView: View {
                         }
                     } label: {
                         if favorites.contains(place) {
-                            Label("Add to Favorites", systemImage: "heart.fill")
+                            //Label("Add to Favorites", systemImage: "heart.fill")
+                            Image(systemName: "heart.fill").foregroundColor(.blue)
                         } else {
-                            Label("Remove from Favorites", systemImage: "heart")
+                            //Label("Remove from Favorites", systemImage: "heart")
+                            Image(systemName: "heart").foregroundColor(.blue)
                         }
                     }
-                    .disabled(place.isVisited == false)
-//                    Button(favorites.contains(prospect) ? "Remove from Favorites" : "Add to Favorites") { //Image(systemName: "heart") : Image(systemName: "heart.fill")
-//                        if favorites.contains(prospect) {
-//                            favorites.remove(prospect)
-//                        } else {
-//                            favorites.add(prospect)
-//                        }
-//                    }
-//                    .disabled(prospect.isContacted == false)
                 }
             }
             .sheet(isPresented: $isURLImagePickerPresented) {
@@ -159,9 +150,9 @@ struct DetailView: View {
     
 }
 
-struct DetailView_Previews: PreviewProvider {
+struct DetailViewV_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(place: Place.example)
+        DetailViewV(place: Place.example)
             .environmentObject(Favorites())
     }
 }

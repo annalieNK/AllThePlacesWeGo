@@ -9,7 +9,7 @@ import SwiftUI
 
 extension View {
     func style(for place: Place) -> some View {
-        if place.isContacted == true {
+        if place.isVisited == true {
             return self.foregroundColor(.green)
         } else {
             return self.foregroundColor(.red)
