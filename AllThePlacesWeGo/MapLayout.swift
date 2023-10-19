@@ -66,34 +66,34 @@ struct MapLayout: View {
                                     .cornerRadius(10)
                                     .opacity(showTitle ? 0 : 1)
                                 
-                                ZStack {
-                                    Image(systemName: "circle.fill") 
+                                if favorites.contains(place) {
+                                    Image(systemName: "heart.fill")
                                         .font(.title)
                                         .style(for: place)
-                                    
-                                    Image(systemName: place.symbol)
-                                        .font(.caption)
-                                        .foregroundColor(.white)
+                                } else {
+                                    VStack {
+                                        ZStack {
+                                            Image(systemName: "circle.fill")
+                                                .font(.title)
+                                                .style(for: place)
+                                            
+                                            Image(systemName: place.symbol)
+                                                .font(.caption)
+                                                .foregroundColor(.white)
+                                        }
+                                        Image(systemName: "arrowtriangle.down.fill")
+                                            .font(.caption)
+                                            .style(for: place)
+                                            .offset(x: 0, y: -5)
+                                    }
                                 }
-                                
-                                Image(systemName: "arrowtriangle.down.fill")
-                                    .font(.caption)
-                                    .style(for: place)
-                                    .offset(x: 0, y: -5)
                             }
+                            // Rewrite to show only per tapped location
                             .onTapGesture {
                                 withAnimation(.easeInOut) {
                                     showTitle.toggle()
                                 }
                             }
-//                            ZStack {
-//                                Image(systemName: place.symbol)
-//                                    .resizable()
-//                                    .style(for: place) //.foregroundColor(.red)
-//                                    //.frame(width: 30, height: 30)
-//                                    //.background(.white)
-//                                    //.clipShape(Circle())
-//                            }
                         }
                     }
                 }
@@ -131,10 +131,10 @@ struct MapLayout: View {
                     filterTag = .familyActivity
                     //showingFilterOptions = false
                 }
-//                Button("picnic") {
-//                    filterTag = .picnic
-//                    //showingFilterOptions = false
-//                }
+                Button("picnic") {
+                    filterTag = .picnic
+                    //showingFilterOptions = false
+                }
 //                Button("winery") {
 //                    filterTag = .winery
 //                    //showingFilterOptions = false
@@ -143,10 +143,10 @@ struct MapLayout: View {
                     filterTag = .restaurant
                     //showingFilterOptions = false
                 }
-                Button("snow activity") {
-                    filterTag = .snowActivity
-                    //showingFilterOptions = false
-                }
+//                Button("snow activity") {
+//                    filterTag = .snowActivity
+//                    //showingFilterOptions = false
+//                }
                 Button("cultural activity") {
                     filterTag = .culturalActivity
                     //showingFilterOptions = false

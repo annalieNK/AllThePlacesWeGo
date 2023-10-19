@@ -32,7 +32,7 @@ struct PlaceAnnotationView: View {
                 .background(Color(.white))
                 .cornerRadius(10)
                 .opacity(showTitle ? 0 : 1)
-            
+                        
             ZStack {
                 Image(systemName: "circle.fill") //mappin.circle.fill
                     .font(.title)

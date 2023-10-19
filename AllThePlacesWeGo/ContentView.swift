@@ -20,14 +20,6 @@ struct ContentView: View {
                 .tabItem {
                     Label("Map", systemImage: "map")
                 }
-            PlacesViewNV(filter: .notvisited)
-                .tabItem {
-                    Label("Not Visited", systemImage: "questionmark.diamond")
-                }
-            PlacesViewV(filter: .visited)
-                .tabItem {
-                    Label("Visited", systemImage: "checkmark.circle")
-                }
         }
         // Add the prospects object to all views inside TabView
         .environmentObject(places)

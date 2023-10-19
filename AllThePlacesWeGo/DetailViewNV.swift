@@ -99,6 +99,20 @@ struct DetailViewNV: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     VStack {
                         Menu {
+                            if place.isVisited {
+                                Button(action: {
+                                    places.toggle(place)
+                                }) {
+                                    Text("Mark not visited")
+                                }
+                            } else {
+                                Button(action: {
+                                    places.toggle(place)
+                                }) {
+                                    Text("Mark visited")
+                                }
+                            }
+                            
                             Button(action: {
                                 isURLImagePickerPresented = true
                             }) {

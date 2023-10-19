@@ -107,10 +107,10 @@ struct PlacesViewNV: View {
                     filterTag = .familyActivity
                     //showingFilterOptions = false
                 }
-                //                Button("picnic") {
-                //                    filterTag = .picnic
-                //                    //showingFilterOptions = false
-                //                }
+                Button("picnic") {
+                    filterTag = .picnic
+                    //showingFilterOptions = false
+                }
                 //                Button("winery") {
                 //                    filterTag = .winery
                 //                    //showingFilterOptions = false
@@ -119,10 +119,10 @@ struct PlacesViewNV: View {
                     filterTag = .restaurant
                     //showingFilterOptions = false
                 }
-                Button("snow activity") {
-                    filterTag = .snowActivity
-                    //showingFilterOptions = false
-                }
+//                Button("snow activity") {
+//                    filterTag = .snowActivity
+//                    //showingFilterOptions = false
+//                }
                 Button("cultural activity") {
                     filterTag = .culturalActivity
                     //showingFilterOptions = false
@@ -142,10 +142,6 @@ struct PlacesViewNV: View {
             } message: {
                 Text("Select tag to filter photos")
             }
-            //            .sheet(isPresented: $isAddingItem) {
-            //                AddView(prospects: prospects, searchModel: SearchViewModel())
-            //                    //.disabled(filter == .contacted)
-            //            }
         }
         .environmentObject(favorites)
     }

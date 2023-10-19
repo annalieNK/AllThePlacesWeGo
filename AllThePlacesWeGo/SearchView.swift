@@ -58,7 +58,7 @@ struct SearchView: View {
                                 }
                             } label: {
                                 VStack(spacing: 0) {
-                                    Image(systemName: "mappin.circle.fill") //mappin.circle.fill
+                                    Image(systemName: "mappin.circle.fill") 
                                         .font(.title)
                                         .foregroundColor(.red)
                                     
