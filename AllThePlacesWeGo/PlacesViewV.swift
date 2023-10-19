@@ -43,7 +43,7 @@ struct PlacesViewV: View {
                     
                     VStack(alignment: .leading) {
                         NavigationLink {
-                            DetailViewNV(place: place)
+                            DetailViewV(place: place)
                         } label: {
                             HStack {
                                 Text(place.locationName)
@@ -63,14 +63,14 @@ struct PlacesViewV: View {
                             Button {
                                 places.toggle(place)
                             } label: {
-                                Label("Mark Uncontacted", systemImage: "person.crop.circle.badge.xmark")
+                                Label("Mark Uncontacted", systemImage: "checkmark.circle.badge.xmark")
                             }
                             .tint(.blue)
                         } else {
                             Button {
                                 places.toggle(place)
                             } label: {
-                                Label("Mark Contacted", systemImage: "person.crop.circle.fill.badge.checkmark")
+                                Label("Mark Contacted", systemImage: "checkmark.circle.badge.xmark")
                             }
                             .tint(.green)
                         }

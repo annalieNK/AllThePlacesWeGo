@@ -22,6 +22,8 @@ struct MapLayout: View {
     @State private var filterTag = FilterTag.default
     //@State private var filterCategory: String = "" //nil
     
+    @State private var showTitle = true
+    
     enum FilterTag {
         case `default`, beach, hiking, familyActivity, picnic, winery, restaurant, snowActivity, culturalActivity, campground, hotel, other
     }
@@ -48,16 +50,50 @@ struct MapLayout: View {
                 Map(coordinateRegion: $places.region, annotationItems: filteredItems) { place in  //prospects.people
                     MapAnnotation(coordinate: place.coordinate) {
                         NavigationLink {
-                            DetailView(place: place)
-                        } label: {
-                            ZStack {
-                                Image(systemName: place.symbol)
-                                    .resizable()
-                                    .style(for: place) //.foregroundColor(.red)
-                                    //.frame(width: 30, height: 30)
-                                    //.background(.white)
-                                    //.clipShape(Circle())
+                            // Add either DetailView Not Visited or Visited
+                            if place.isVisited {
+                                DetailViewV(place: place)
+                            } else {
+                                DetailViewNV(place: place)
                             }
+                        } label: {
+                            //PlaceAnnotationView(title: place.locationName, symbol: place.symbol)
+                            VStack(spacing: 0) {
+                                Text(place.locationName)
+                                    .font(.callout)
+                                    .padding(5)
+                                    .background(Color(.white))
+                                    .cornerRadius(10)
+                                    .opacity(showTitle ? 0 : 1)
+                                
+                                ZStack {
+                                    Image(systemName: "circle.fill") 
+                                        .font(.title)
+                                        .style(for: place)
+                                    
+                                    Image(systemName: place.symbol)
+                                        .font(.caption)
+                                        .foregroundColor(.white)
+                                }
+                                
+                                Image(systemName: "arrowtriangle.down.fill")
+                                    .font(.caption)
+                                    .style(for: place)
+                                    .offset(x: 0, y: -5)
+                            }
+                            .onTapGesture {
+                                withAnimation(.easeInOut) {
+                                    showTitle.toggle()
+                                }
+                            }
+//                            ZStack {
+//                                Image(systemName: place.symbol)
+//                                    .resizable()
+//                                    .style(for: place) //.foregroundColor(.red)
+//                                    //.frame(width: 30, height: 30)
+//                                    //.background(.white)
+//                                    //.clipShape(Circle())
+//                            }
                         }
                     }
                 }

@@ -52,12 +52,22 @@ struct DetailViewV: View {
                     span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
                 )), annotationItems: [Place(latitude: place.latitude, longitude: place.longitude, locationName: place.locationName, tag: place.tag, urlImageString: place.urlImageString)]) { p in
                     MapAnnotation(coordinate: p.coordinate) {
-                        Image(systemName: "star.circle")
-                            .resizable()
-                            .foregroundColor(.red)
-                            .frame(width: 44, height: 44)
-                            .background(.white)
-                            .clipShape(Circle())
+                        VStack {
+                            ZStack {
+                                Image(systemName: "circle.fill")
+                                    .font(.title)
+                                    .style(for: place)
+                                
+                                Image(systemName: place.symbol)
+                                    .font(.caption)
+                                    .foregroundColor(.white)
+                            }
+                            
+                            Image(systemName: "arrowtriangle.down.fill")
+                                .font(.caption)
+                                .style(for: place)
+                                .offset(x: 0, y: -5)
+                        }
                     }
                 }
                                 
@@ -120,11 +130,11 @@ struct DetailViewV: View {
                         }
                     } label: {
                         if favorites.contains(place) {
-                            //Label("Add to Favorites", systemImage: "heart.fill")
-                            Image(systemName: "heart.fill").foregroundColor(.blue)
+                            Label("Add to Favorites", systemImage: "heart.fill")
+                            //Image(systemName: "heart.fill").foregroundColor(.blue)
                         } else {
-                            //Label("Remove from Favorites", systemImage: "heart")
-                            Image(systemName: "heart").foregroundColor(.blue)
+                            Label("Remove from Favorites", systemImage: "heart")
+                            //Image(systemName: "heart").foregroundColor(.blue)
                         }
                     }
                 }

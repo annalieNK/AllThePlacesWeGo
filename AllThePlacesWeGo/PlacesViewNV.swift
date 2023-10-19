@@ -63,14 +63,14 @@ struct PlacesViewNV: View {
                             Button {
                                 places.toggle(place)
                             } label: {
-                                Label("Mark Uncontacted", systemImage: "person.crop.circle.badge.xmark")
+                                Label("Mark Uncontacted", systemImage: "checkmark.circle")
                             }
                             .tint(.blue)
                         } else {
                             Button {
                                 places.toggle(place)
                             } label: {
-                                Label("Mark Contacted", systemImage: "person.crop.circle.fill.badge.checkmark")
+                                Label("Mark Contacted", systemImage: "checkmark.circle")
                             }
                             .tint(.green)
                         }

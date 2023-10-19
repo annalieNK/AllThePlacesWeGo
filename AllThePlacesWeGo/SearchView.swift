@@ -57,15 +57,25 @@ struct SearchView: View {
                                     Label("hiking", systemImage: "figure.hiking")
                                 }
                             } label: {
-                                
-                                ZStack {
-                                    Image(systemName: "star.circle")
-                                        .resizable()
+                                VStack(spacing: 0) {
+                                    Image(systemName: "mappin.circle.fill") //mappin.circle.fill
+                                        .font(.title)
                                         .foregroundColor(.red)
-                                        .frame(width: 44, height: 44)
-                                        .background(.white)
-                                        .clipShape(Circle())
+                                    
+                                    Image(systemName: "arrowtriangle.down.fill")
+                                        .font(.caption)
+                                        .foregroundColor(.red)
+                                        .offset(x: 0, y: -5)
                                 }
+                                //PlaceAnnotationView(title: "", symbol: "mappin")
+//                                ZStack {
+//                                    Image(systemName: "star.circle")
+//                                        .resizable()
+//                                        .foregroundColor(.red)
+//                                        .frame(width: 44, height: 44)
+//                                        .background(.white)
+//                                        .clipShape(Circle())
+//                                }
                                 
                                 .onTapGesture {
                                     selectedCoordinate = item.coordinate
