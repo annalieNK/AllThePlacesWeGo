@@ -39,7 +39,7 @@ struct DetailViewV: View {
                     }
                     .frame(height: 200)
                 } else {
-                    Text("Image not available")
+                    //Text("Image not available")
                 }
                 
 //                Button("Visit Apple") {

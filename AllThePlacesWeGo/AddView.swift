@@ -31,6 +31,9 @@ struct AddView: View {
     var body: some View {
         NavigationView {
             VStack {
+                // Add the type here with a scroll view downwards 
+                Text("sdfsdf")
+                
                 TextField("Search for a location", text: $searchModel.searchText)//, onCommit: performSearch)
                     .padding()
                     .autocorrectionDisabled()
@@ -73,7 +76,7 @@ struct AddView: View {
                 //Map(coordinateRegion: $map)
             }
             //.edgesIgnoringSafeArea(.bottom)
-            .navigationBarTitle("Add a new location")
+            .navigationBarTitle("Add to collection")
 //            .confirmationDialog("Add this location to your collection", isPresented: $showingSaveConfirmation) {
 //                Button("Add location") {
 //                    guard let selectedCoordinate = selectedCoordinate else { return }

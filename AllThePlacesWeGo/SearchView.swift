@@ -32,62 +32,64 @@ struct SearchView: View {
     //    }
     
     var body: some View {
-         Text(tag)
+        //Text(tag)
         
         ZStack {
             Map(
                 coordinateRegion: $mapModel.region,
-                annotationItems: mapModel.annotationItems,
-                annotationContent: { item in
-                    MapAnnotation(coordinate: item.coordinate) {
-                        VStack {
-                            Menu {
-                                Button(action: {
-                                    tag = "beach"
-                                    //icon = "beach.umbrella.fill"
-                                    selectedCoordinate = item.coordinate
-                                }) {
-                                    Label("beach", systemImage: "beach.umbrella.fill")
-                                }
-                                Button(action: {
-                                    tag = "hiking"
-                                    //icon = "figure.hiking"
-                                    selectedCoordinate = item.coordinate
-                                }) {
-                                    Label("hiking", systemImage: "figure.hiking")
-                                }
-                            } label: {
-                                VStack(spacing: 0) {
-                                    Image(systemName: "mappin.circle.fill") 
-                                        .font(.title)
-                                        .foregroundColor(.red)
-                                    
-                                    Image(systemName: "arrowtriangle.down.fill")
-                                        .font(.caption)
-                                        .foregroundColor(.red)
-                                        .offset(x: 0, y: -5)
-                                }
-                                //PlaceAnnotationView(title: "", symbol: "mappin")
-//                                ZStack {
-//                                    Image(systemName: "star.circle")
-//                                        .resizable()
-//                                        .foregroundColor(.red)
-//                                        .frame(width: 44, height: 44)
-//                                        .background(.white)
-//                                        .clipShape(Circle())
+                annotationItems: mapModel.annotationItems) { item in
+                    MapMarker(coordinate: item.coordinate)
+                }//,
+//                annotationContent: { item in
+//                    MapAnnotation(coordinate: item.coordinate) {
+//                        VStack {
+//                            Menu {
+//                                Button(action: {
+//                                    tag = "beach"
+//                                    //icon = "beach.umbrella.fill"
+//                                    selectedCoordinate = item.coordinate
+//                                }) {
+//                                    Label("beach", systemImage: "beach.umbrella.fill")
 //                                }
-                                
-                                .onTapGesture {
-                                    selectedCoordinate = item.coordinate
-                                    //showingSaveConfirmation = true
-                                }
-                            }
-                        }
-                    }
-                }
-            )
+//                                Button(action: {
+//                                    tag = "hiking"
+//                                    //icon = "figure.hiking"
+//                                    selectedCoordinate = item.coordinate
+//                                }) {
+//                                    Label("hiking", systemImage: "figure.hiking")
+//                                }
+//                            } label: {
+//                                VStack(spacing: 0) {
+//                                    Image(systemName: "mappin.circle.fill") 
+//                                        .font(.title)
+//                                        .foregroundColor(.red)
+//                                    
+//                                    Image(systemName: "arrowtriangle.down.fill")
+//                                        .font(.caption)
+//                                        .foregroundColor(.red)
+//                                        .offset(x: 0, y: -5)
+//                                }
+//                                //PlaceAnnotationView(title: "", symbol: "mappin")
+////                                ZStack {
+////                                    Image(systemName: "star.circle")
+////                                        .resizable()
+////                                        .foregroundColor(.red)
+////                                        .frame(width: 44, height: 44)
+////                                        .background(.white)
+////                                        .clipShape(Circle())
+////                                }
+//                                
+//                                .onTapGesture {
+//                                    selectedCoordinate = item.coordinate
+//                                    //showingSaveConfirmation = true
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            )
         }
-        .frame(width: 400, height: 400) // Set the desired width and height
+        .frame(width: 400, height: 650) // Set the desired width and height
         .cornerRadius(10)
         .onAppear {
             self.mapModel.getPlace(from: address)
@@ -95,7 +97,7 @@ struct SearchView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    guard let selectedCoordinate = selectedCoordinate else { return }
+                    guard let selectedCoordinate = mapModel.annotationItems.first?.coordinate else { return } //selectedCoordinate else { return }
                     places.add(latitude: selectedCoordinate.latitude, longitude: selectedCoordinate.longitude, locationName: address.title, tag: tag, urlImageString: urlImageString)
                     dismiss()
                 } label: {

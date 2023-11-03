@@ -74,7 +74,7 @@ struct MapLayout: View {
                                     VStack {
                                         ZStack {
                                             Image(systemName: "circle.fill")
-                                                .font(.title)
+                                                .font(.title) //title
                                                 .style(for: place)
                                             
                                             Image(systemName: place.symbol)
@@ -82,7 +82,7 @@ struct MapLayout: View {
                                                 .foregroundColor(.white)
                                         }
                                         Image(systemName: "arrowtriangle.down.fill")
-                                            .font(.caption)
+                                            .font(.caption2)
                                             .style(for: place)
                                             .offset(x: 0, y: -5)
                                     }
@@ -98,6 +98,8 @@ struct MapLayout: View {
                     }
                 }
             }
+            // change background color here
+            .background(Color.yellow)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {

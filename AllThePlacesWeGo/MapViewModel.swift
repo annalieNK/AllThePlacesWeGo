@@ -13,6 +13,8 @@ class MapViewModel: ObservableObject {
     @Published var region = MKCoordinateRegion()
     @Published var annotationItems: [AnnotationItem] = []
     
+    @Published var searchResults: [MKMapItem] = []
+    
     func getPlace(from address: AddressResult) {
         let request = MKLocalSearch.Request()
         let title = address.title
@@ -20,6 +22,15 @@ class MapViewModel: ObservableObject {
         
         request.naturalLanguageQuery = subTitle.contains(title)
         ? subTitle : title + ", " + subTitle
+        
+//        let response = MKLocalSearch(request: request)
+//        response.start { (response, error) in
+//            if let error = error {
+//                print("Error performing local search: \(error.localizedDescription)")
+//            } else if let firstMapItem = response?.mapItems.first {
+//                let placemark = firstMapItem.placemark
+//            }
+//        }
         
         Task {
             let response = try await MKLocalSearch(request: request).start()

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34429D892AE1F0120009A7E0 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34429D882AE1F0120009A7E0 /* SplashView.swift */; };
+		34429D8B2AE1F0500009A7E0 /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34429D8A2AE1F0500009A7E0 /* Color-Theme.swift */; };
 		345365E22ADF0D7800A709AA /* AllThePlacesWeGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345365E12ADF0D7800A709AA /* AllThePlacesWeGoApp.swift */; };
 		345365E42ADF0D7800A709AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345365E32ADF0D7800A709AA /* ContentView.swift */; };
 		345365E62ADF0D7A00A709AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 345365E52ADF0D7A00A709AA /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34429D882AE1F0120009A7E0 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		34429D8A2AE1F0500009A7E0 /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
 		345365DE2ADF0D7800A709AA /* AllThePlacesWeGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllThePlacesWeGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		345365E12ADF0D7800A709AA /* AllThePlacesWeGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllThePlacesWeGoApp.swift; sourceTree = "<group>"; };
 		345365E32ADF0D7800A709AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				345366042ADF122200A709AA /* AddressRow.swift */,
 				3453660A2ADF12B400A709AA /* AddressResult.swift */,
 				345365E32ADF0D7800A709AA /* ContentView.swift */,
+				34429D882AE1F0120009A7E0 /* SplashView.swift */,
+				34429D8A2AE1F0500009A7E0 /* Color-Theme.swift */,
 				345365F62ADF0FA500A709AA /* PlacesView.swift */,
 				345366142ADF280900A709AA /* PlacesViewNV.swift */,
 				345366182ADF2BAE00A709AA /* PlacesViewV.swift */,
@@ -216,9 +222,11 @@
 				345366032ADF120F00A709AA /* AnnotationItem.swift in Sources */,
 				345365F32ADF0F4600A709AA /* Favorites.swift in Sources */,
 				345366172ADF2ABC00A709AA /* DetailViewNV.swift in Sources */,
+				34429D8B2AE1F0500009A7E0 /* Color-Theme.swift in Sources */,
 				345366012ADF11F500A709AA /* MapViewModel.swift in Sources */,
 				345366112ADF12F100A709AA /* FileManager-DocumentsDirectory.swift in Sources */,
 				345365F92ADF104600A709AA /* MapLayout.swift in Sources */,
+				34429D892AE1F0120009A7E0 /* SplashView.swift in Sources */,
 				345366072ADF125100A709AA /* SearchView.swift in Sources */,
 				345365E42ADF0D7800A709AA /* ContentView.swift in Sources */,
 				3453661B2ADF2BF400A709AA /* DetailViewV.swift in Sources */,
