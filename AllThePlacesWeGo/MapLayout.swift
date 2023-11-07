@@ -14,6 +14,8 @@ struct MapLayout: View {
     @EnvironmentObject var places: Places
     @StateObject var favorites = Favorites()
     
+    @State private var selectedPlace: Place?
+    
     @StateObject var searchModel: SearchViewModel
     @StateObject private var mapModel = MapViewModel()
     
@@ -23,11 +25,14 @@ struct MapLayout: View {
     //@State private var filterCategory: String = "" //nil
     
     @State private var showTitle = true
+    @State private var increaseSize = false
+    
+    @State private var tapLocation: CGPoint?
     
     enum FilterTag {
         case `default`, beach, hiking, familyActivity, picnic, winery, restaurant, snowActivity, culturalActivity, campground, hotel, other
     }
-        
+    
     //    var filteredItems: [Prospect] {
     //        if filterCategory == "personal" {
     //            return prospects.people.filter { $0.tag == "personal"}
@@ -67,13 +72,9 @@ struct MapLayout: View {
                                     .opacity(showTitle ? 0 : 1)
                                 
                                 if favorites.contains(place) {
-                                    Image(systemName: "heart.fill")
-                                        .font(.title)
-                                        .style(for: place)
-                                } else {
                                     VStack {
                                         ZStack {
-                                            Image(systemName: "circle.fill")
+                                            Image(systemName: "heart.fill")
                                                 .font(.title) //title
                                                 .style(for: place)
                                             
@@ -81,22 +82,48 @@ struct MapLayout: View {
                                                 .font(.caption)
                                                 .foregroundColor(.white)
                                         }
-                                        Image(systemName: "arrowtriangle.down.fill")
-                                            .font(.caption2)
-                                            .style(for: place)
-                                            .offset(x: 0, y: -5)
                                     }
+                                    //.scaleEffect(increaseSize ? 1.5 : 1.0)
+                                } else {
+                                    VStack {
+                                        ZStack {
+                                            Image(systemName: "circle.fill")
+                                                .font(selectedPlace == place ? .largeTitle : .title)
+                                                .opacity(selectedPlace == place ? 1 : 0.5)
+                                                .style(for: place)
+                                            
+                                            Image(systemName: place.symbol)
+                                                .font(.caption)
+                                                .foregroundColor(.white)
+                                        }
+                                        //                                        Image(systemName: "arrowtriangle.down.fill")
+                                        //                                            .font(.caption2)
+                                        //                                            .style(for: place)
+                                        //                                            .offset(x: 0, y: -5)
+                                    }
+                                    //.scaleEffect(increaseSize ? 1.5 : 1.0)
                                 }
                             }
                             // Rewrite to show only per tapped location
                             .onTapGesture {
                                 withAnimation(.easeInOut) {
                                     showTitle.toggle()
+                                    //increaseSize.toggle()
+                                    selectedPlace = place
                                 }
                             }
+                            //.scaleEffect(selectedPlace == place ? 1.5 : 1.0) //
                         }
                     }
                 }
+                .gesture(
+                    TapGesture()
+                        .onEnded { value in
+                            //tapLocation = value.location
+                            selectedPlace = nil
+                            showTitle = true
+                        }
+                )
             }
             // change background color here
             .background(Color.yellow)
@@ -137,18 +164,18 @@ struct MapLayout: View {
                     filterTag = .picnic
                     //showingFilterOptions = false
                 }
-//                Button("winery") {
-//                    filterTag = .winery
-//                    //showingFilterOptions = false
-//                }
+                //                Button("winery") {
+                //                    filterTag = .winery
+                //                    //showingFilterOptions = false
+                //                }
                 Button("restaurant") {
                     filterTag = .restaurant
                     //showingFilterOptions = false
                 }
-//                Button("snow activity") {
-//                    filterTag = .snowActivity
-//                    //showingFilterOptions = false
-//                }
+                //                Button("snow activity") {
+                //                    filterTag = .snowActivity
+                //                    //showingFilterOptions = false
+                //                }
                 Button("cultural activity") {
                     filterTag = .culturalActivity
                     //showingFilterOptions = false

@@ -63,10 +63,10 @@ struct DetailViewNV: View {
                                     .foregroundColor(.white)
                             }
                             
-                            Image(systemName: "arrowtriangle.down.fill")
-                                .font(.caption)
-                                .style(for: place)
-                                .offset(x: 0, y: -5)
+//                            Image(systemName: "arrowtriangle.down.fill")
+//                                .font(.caption)
+//                                .style(for: place)
+//                                .offset(x: 0, y: -5)
                         }
                     }
                 }

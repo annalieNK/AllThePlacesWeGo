@@ -16,8 +16,8 @@ struct SearchView: View {
     
     let address: AddressResult
     
-    let tags = ["beach", "hiking", "family activity", "picnic", "winery", "restaurant", "snow activity", "cultural activity", "campground", "hotel", "other"]
-    let icons = ["beach.umbrella.fill", "figure.hiking", "figure.and.child.holdinghands", "basket.fill", "wineglass.fill", "fork.knife", "snowflake", "theatermask.and.paintbrush.fill", "tent.fill", "house.lodge.fill", "star.fill"]
+    let tags = ["other", "beach", "hiking", "family activity", "picnic", "winery", "restaurant", "snow activity", "cultural activity", "campground", "hotel"]
+    let icons = ["star.fill", "beach.umbrella.fill", "figure.hiking", "figure.and.child.holdinghands", "basket.fill", "wineglass.fill", "fork.knife", "snowflake", "theatermask.and.paintbrush.fill", "tent.fill", "house.lodge.fill"]
     
     @State private var selectedCoordinate: CLLocationCoordinate2D?
     @State private var showingSaveConfirmation = false
@@ -32,63 +32,72 @@ struct SearchView: View {
     //    }
     
     var body: some View {
-        //Text(tag)
-        
-        ZStack {
+        VStack {
+            Section {
+                Picker("Select type of activity", selection: $tag) {
+                    ForEach(tags, id: \.self) {
+                        Text($0)
+                    }
+                }
+                .pickerStyle(WheelPickerStyle())
+            }
+            
+            //ZStack {
             Map(
                 coordinateRegion: $mapModel.region,
                 annotationItems: mapModel.annotationItems) { item in
                     MapMarker(coordinate: item.coordinate)
                 }//,
-//                annotationContent: { item in
-//                    MapAnnotation(coordinate: item.coordinate) {
-//                        VStack {
-//                            Menu {
-//                                Button(action: {
-//                                    tag = "beach"
-//                                    //icon = "beach.umbrella.fill"
-//                                    selectedCoordinate = item.coordinate
-//                                }) {
-//                                    Label("beach", systemImage: "beach.umbrella.fill")
-//                                }
-//                                Button(action: {
-//                                    tag = "hiking"
-//                                    //icon = "figure.hiking"
-//                                    selectedCoordinate = item.coordinate
-//                                }) {
-//                                    Label("hiking", systemImage: "figure.hiking")
-//                                }
-//                            } label: {
-//                                VStack(spacing: 0) {
-//                                    Image(systemName: "mappin.circle.fill") 
-//                                        .font(.title)
-//                                        .foregroundColor(.red)
-//                                    
-//                                    Image(systemName: "arrowtriangle.down.fill")
-//                                        .font(.caption)
-//                                        .foregroundColor(.red)
-//                                        .offset(x: 0, y: -5)
-//                                }
-//                                //PlaceAnnotationView(title: "", symbol: "mappin")
-////                                ZStack {
-////                                    Image(systemName: "star.circle")
-////                                        .resizable()
-////                                        .foregroundColor(.red)
-////                                        .frame(width: 44, height: 44)
-////                                        .background(.white)
-////                                        .clipShape(Circle())
-////                                }
-//                                
-//                                .onTapGesture {
-//                                    selectedCoordinate = item.coordinate
-//                                    //showingSaveConfirmation = true
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            )
+            //                annotationContent: { item in
+            //                    MapAnnotation(coordinate: item.coordinate) {
+            //                        VStack {
+            //                            Menu {
+            //                                Button(action: {
+            //                                    tag = "beach"
+            //                                    //icon = "beach.umbrella.fill"
+            //                                    selectedCoordinate = item.coordinate
+            //                                }) {
+            //                                    Label("beach", systemImage: "beach.umbrella.fill")
+            //                                }
+            //                                Button(action: {
+            //                                    tag = "hiking"
+            //                                    //icon = "figure.hiking"
+            //                                    selectedCoordinate = item.coordinate
+            //                                }) {
+            //                                    Label("hiking", systemImage: "figure.hiking")
+            //                                }
+            //                            } label: {
+            //                                VStack(spacing: 0) {
+            //                                    Image(systemName: "mappin.circle.fill")
+            //                                        .font(.title)
+            //                                        .foregroundColor(.red)
+            //
+            //                                    Image(systemName: "arrowtriangle.down.fill")
+            //                                        .font(.caption)
+            //                                        .foregroundColor(.red)
+            //                                        .offset(x: 0, y: -5)
+            //                                }
+            //                                //PlaceAnnotationView(title: "", symbol: "mappin")
+            ////                                ZStack {
+            ////                                    Image(systemName: "star.circle")
+            ////                                        .resizable()
+            ////                                        .foregroundColor(.red)
+            ////                                        .frame(width: 44, height: 44)
+            ////                                        .background(.white)
+            ////                                        .clipShape(Circle())
+            ////                                }
+            //
+            //                                .onTapGesture {
+            //                                    selectedCoordinate = item.coordinate
+            //                                    //showingSaveConfirmation = true
+            //                                }
+            //                            }
+            //                        }
+            //                    }
+            //                }
+            //            )
         }
+        //}
         .frame(width: 400, height: 650) // Set the desired width and height
         .cornerRadius(10)
         .onAppear {
