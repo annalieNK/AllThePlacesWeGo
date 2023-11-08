@@ -23,7 +23,7 @@ struct MapLayout: View {
     @State private var showingFilterOptions = false
     @State private var filterTag = FilterTag.default
     //@State private var filterCategory: String = "" //nil
-    
+        
     @State private var showTitle = true
     @State private var increaseSize = false
     

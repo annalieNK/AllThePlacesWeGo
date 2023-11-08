@@ -27,17 +27,25 @@ struct DetailViewNV: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack { 
+                Spacer()
                 if let imageURL = place.imageURL {
-                    AsyncImage(url: imageURL) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxWidth: .infinity)
-                    } placeholder: {
-                        ProgressView()
+                    GeometryReader { geo in
+                        AsyncImage(url: imageURL) { image in
+                            image
+                                .resizable()
+                                //.aspectRatio(contentMode: .fit)
+                                //.frame(maxWidth: .infinity)
+                                .scaledToFit()
+                                .frame(width: geo.size.width, height: geo.size.height) //
+//                                .containerRelativeFrame(.horizontal) { size, axis in
+//                                        size * 0.8
+//                                    }
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(height: 200)
                     }
-                    .frame(height: 200)
                 } else {
                     //Text("Image not available")
                 }
@@ -94,6 +102,7 @@ struct DetailViewNV: View {
                 //                }
                 //            }
             }
+//            .edgesIgnoringSafeArea(.top)
             .navigationBarTitle(place.locationName, displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
