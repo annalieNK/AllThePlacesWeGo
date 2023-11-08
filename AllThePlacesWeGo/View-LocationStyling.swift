@@ -36,7 +36,6 @@ struct PlaceAnnotationView: View {
             ZStack {
                 Image(systemName: "circle.fill") //mappin.circle.fill
                     .font(.title)
-                    //.foregroundColor(.red)
                 
                 Image(systemName: symbol)
                     .font(.caption)
@@ -45,7 +44,6 @@ struct PlaceAnnotationView: View {
             
             Image(systemName: "arrowtriangle.down.fill")
                 .font(.caption)
-                //.foregroundColor(.red)
                 .offset(x: 0, y: -5)
         }
         .onTapGesture {

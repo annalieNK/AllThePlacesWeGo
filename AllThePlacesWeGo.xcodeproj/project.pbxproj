@@ -16,9 +16,7 @@
 		345365F12ADF0EAB00A709AA /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345365F02ADF0EAB00A709AA /* Place.swift */; };
 		345365F32ADF0F4600A709AA /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345365F22ADF0F4600A709AA /* Favorites.swift */; };
 		345365F52ADF0F8300A709AA /* View-LocationStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345365F42ADF0F8300A709AA /* View-LocationStyling.swift */; };
-		345365F72ADF0FA500A709AA /* PlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345365F62ADF0FA500A709AA /* PlacesView.swift */; };
 		345365F92ADF104600A709AA /* MapLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345365F82ADF104600A709AA /* MapLayout.swift */; };
-		345365FB2ADF10A700A709AA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345365FA2ADF10A700A709AA /* DetailView.swift */; };
 		345365FD2ADF116A00A709AA /* URLimagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345365FC2ADF116A00A709AA /* URLimagePicker.swift */; };
 		345365FF2ADF11A200A709AA /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345365FE2ADF11A200A709AA /* AddView.swift */; };
 		345366012ADF11F500A709AA /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345366002ADF11F500A709AA /* MapViewModel.swift */; };
@@ -30,9 +28,7 @@
 		3453660D2ADF12C400A709AA /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3453660C2ADF12C400A709AA /* ClearButton.swift */; };
 		3453660F2ADF12DB00A709AA /* Map-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3453660E2ADF12DB00A709AA /* Map-Modifier.swift */; };
 		345366112ADF12F100A709AA /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345366102ADF12F100A709AA /* FileManager-DocumentsDirectory.swift */; };
-		345366152ADF280900A709AA /* PlacesViewNV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345366142ADF280900A709AA /* PlacesViewNV.swift */; };
 		345366172ADF2ABC00A709AA /* DetailViewNV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345366162ADF2ABC00A709AA /* DetailViewNV.swift */; };
-		345366192ADF2BAE00A709AA /* PlacesViewV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345366182ADF2BAE00A709AA /* PlacesViewV.swift */; };
 		3453661B2ADF2BF400A709AA /* DetailViewV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3453661A2ADF2BF400A709AA /* DetailViewV.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,9 +44,7 @@
 		345365F02ADF0EAB00A709AA /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		345365F22ADF0F4600A709AA /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		345365F42ADF0F8300A709AA /* View-LocationStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-LocationStyling.swift"; sourceTree = "<group>"; };
-		345365F62ADF0FA500A709AA /* PlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesView.swift; sourceTree = "<group>"; };
 		345365F82ADF104600A709AA /* MapLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLayout.swift; sourceTree = "<group>"; };
-		345365FA2ADF10A700A709AA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		345365FC2ADF116A00A709AA /* URLimagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLimagePicker.swift; sourceTree = "<group>"; };
 		345365FE2ADF11A200A709AA /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		345366002ADF11F500A709AA /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -62,9 +56,7 @@
 		3453660C2ADF12C400A709AA /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		3453660E2ADF12DB00A709AA /* Map-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Map-Modifier.swift"; sourceTree = "<group>"; };
 		345366102ADF12F100A709AA /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
-		345366142ADF280900A709AA /* PlacesViewNV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewNV.swift; sourceTree = "<group>"; };
 		345366162ADF2ABC00A709AA /* DetailViewNV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewNV.swift; sourceTree = "<group>"; };
-		345366182ADF2BAE00A709AA /* PlacesViewV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewV.swift; sourceTree = "<group>"; };
 		3453661A2ADF2BF400A709AA /* DetailViewV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,11 +99,7 @@
 				345365E32ADF0D7800A709AA /* ContentView.swift */,
 				34429D882AE1F0120009A7E0 /* SplashView.swift */,
 				34429D8A2AE1F0500009A7E0 /* Color-Theme.swift */,
-				345365F62ADF0FA500A709AA /* PlacesView.swift */,
-				345366142ADF280900A709AA /* PlacesViewNV.swift */,
-				345366182ADF2BAE00A709AA /* PlacesViewV.swift */,
 				345365FE2ADF11A200A709AA /* AddView.swift */,
-				345365FA2ADF10A700A709AA /* DetailView.swift */,
 				345366162ADF2ABC00A709AA /* DetailViewNV.swift */,
 				3453661A2ADF2BF400A709AA /* DetailViewV.swift */,
 				345366082ADF129900A709AA /* SearchViewModel.swift */,
@@ -209,13 +197,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				345365FD2ADF116A00A709AA /* URLimagePicker.swift in Sources */,
-				345366152ADF280900A709AA /* PlacesViewNV.swift in Sources */,
-				345365F72ADF0FA500A709AA /* PlacesView.swift in Sources */,
 				345366052ADF122200A709AA /* AddressRow.swift in Sources */,
 				3453660D2ADF12C400A709AA /* ClearButton.swift in Sources */,
 				3453660B2ADF12B400A709AA /* AddressResult.swift in Sources */,
 				345365FF2ADF11A200A709AA /* AddView.swift in Sources */,
-				345365FB2ADF10A700A709AA /* DetailView.swift in Sources */,
 				3453660F2ADF12DB00A709AA /* Map-Modifier.swift in Sources */,
 				345365F12ADF0EAB00A709AA /* Place.swift in Sources */,
 				345366092ADF129900A709AA /* SearchViewModel.swift in Sources */,
@@ -230,7 +215,6 @@
 				345366072ADF125100A709AA /* SearchView.swift in Sources */,
 				345365E42ADF0D7800A709AA /* ContentView.swift in Sources */,
 				3453661B2ADF2BF400A709AA /* DetailViewV.swift in Sources */,
-				345366192ADF2BAE00A709AA /* PlacesViewV.swift in Sources */,
 				345365F52ADF0F8300A709AA /* View-LocationStyling.swift in Sources */,
 				345365E22ADF0D7800A709AA /* AllThePlacesWeGoApp.swift in Sources */,
 			);

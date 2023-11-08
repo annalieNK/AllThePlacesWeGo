@@ -10,6 +10,7 @@ import MapKit
 
 struct MapLayout: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     @EnvironmentObject var places: Places
     @StateObject var favorites = Favorites()
@@ -22,32 +23,12 @@ struct MapLayout: View {
     @State private var isAddingItem = false
     @State private var showingFilterOptions = false
     @State private var filterTag = FilterTag.default
-    //@State private var filterCategory: String = "" //nil
         
     @State private var showTitle = true
-    @State private var increaseSize = false
-    
-    @State private var tapLocation: CGPoint?
-    
+        
     enum FilterTag {
         case `default`, beach, hiking, familyActivity, picnic, winery, restaurant, snowActivity, culturalActivity, campground, hotel, other
     }
-    
-    //    var filteredItems: [Prospect] {
-    //        if filterCategory == "personal" {
-    //            return prospects.people.filter { $0.tag == "personal"}
-    //        } else if filterCategory == "business" {
-    //            return prospects.people.filter { $0.tag == "business"}
-    //        } else {
-    //            return prospects.people
-    //        }
-    //    }
-    
-    //    private let address: AddressResult
-    //
-    //    init(address: AddressResult) {
-    //        self.address = address
-    //    }
     
     var body: some View {
         NavigationView {
@@ -75,7 +56,7 @@ struct MapLayout: View {
                                     VStack {
                                         ZStack {
                                             Image(systemName: "heart.fill")
-                                                .font(.title) //title
+                                                .font(.title)
                                                 .style(for: place)
                                             
                                             Image(systemName: place.symbol)
@@ -83,7 +64,6 @@ struct MapLayout: View {
                                                 .foregroundColor(.white)
                                         }
                                     }
-                                    //.scaleEffect(increaseSize ? 1.5 : 1.0)
                                 } else {
                                     VStack {
                                         ZStack {
@@ -96,37 +76,27 @@ struct MapLayout: View {
                                                 .font(.caption)
                                                 .foregroundColor(.white)
                                         }
-                                        //                                        Image(systemName: "arrowtriangle.down.fill")
-                                        //                                            .font(.caption2)
-                                        //                                            .style(for: place)
-                                        //                                            .offset(x: 0, y: -5)
                                     }
-                                    //.scaleEffect(increaseSize ? 1.5 : 1.0)
                                 }
                             }
-                            // Rewrite to show only per tapped location
                             .onTapGesture {
                                 withAnimation(.easeInOut) {
                                     showTitle.toggle()
-                                    //increaseSize.toggle()
                                     selectedPlace = place
                                 }
                             }
-                            //.scaleEffect(selectedPlace == place ? 1.5 : 1.0) //
                         }
                     }
                 }
                 .gesture(
                     TapGesture()
                         .onEnded { value in
-                            //tapLocation = value.location
                             selectedPlace = nil
                             showTitle = true
                         }
                 )
             }
-            // change background color here
-            .background(Color.yellow)
+            .background(.backgroundGradient, ignoresSafeAreaEdges: horizontalSizeClass == .compact ? [.all] : [.all])
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -136,64 +106,63 @@ struct MapLayout: View {
                     }
                 }
                 ToolbarItem(placement: .automatic) {
-                    Button {
-                        showingFilterOptions = true
-                    } label: {
-                        Label("Filter", systemImage: "slider.horizontal.3")
+                    VStack {
+                        Menu {
+                            Button(action: {
+                                filterTag = .default
+                            }) {
+                                Text("all")
+                            }
+                            Button(action: {
+                                filterTag = .beach
+                            }) {
+                                Text("beach")
+                            }
+                            Button(action: {
+                                filterTag = .hiking
+                            }) {
+                                Text("hiking")
+                            }
+                            Button(action: {
+                                filterTag = .familyActivity
+                            }) {
+                                Text("family activity")
+                            }
+                            Button(action: {
+                                filterTag = .picnic
+                            }) {
+                                Text("picnic")
+                            }
+                            Button(action: {
+                                filterTag = .restaurant
+                            }) {
+                                Text("restaurant")
+                            }
+                            Button(action: {
+                                filterTag = .culturalActivity
+                            }) {
+                                Text("cultural activity")
+                            }
+                            Button(action: {
+                                filterTag = .campground
+                            }) {
+                                Text("campground")
+                            }
+                            Button(action: {
+                                filterTag = .hotel
+                            }) {
+                                Text("hotel")
+                            }
+                            Button(action: {
+                                filterTag = .other
+                            }) {
+                                Text("other")
+                            }
+                        } label: {
+                            Label("Filter", systemImage: "slider.horizontal.3")
+                        }
                     }
                 }
-            }
-            .confirmationDialog("Filter items", isPresented: $showingFilterOptions) {
-                Button("all") {
-                    filterTag = .default //filterCategory = "default"
-                    //showingFilterOptions = false
-                }
-                Button("beach") {
-                    filterTag = .beach
-                    //showingFilterOptions = false
-                }
-                Button("hiking") {
-                    filterTag = .hiking
-                    //showingFilterOptions = false
-                }
-                Button("family activity") {
-                    filterTag = .familyActivity
-                    //showingFilterOptions = false
-                }
-                Button("picnic") {
-                    filterTag = .picnic
-                    //showingFilterOptions = false
-                }
-                //                Button("winery") {
-                //                    filterTag = .winery
-                //                    //showingFilterOptions = false
-                //                }
-                Button("restaurant") {
-                    filterTag = .restaurant
-                    //showingFilterOptions = false
-                }
-                //                Button("snow activity") {
-                //                    filterTag = .snowActivity
-                //                    //showingFilterOptions = false
-                //                }
-                Button("cultural activity") {
-                    filterTag = .culturalActivity
-                    //showingFilterOptions = false
-                }
-                Button("campground") {
-                    filterTag = .campground
-                    //showingFilterOptions = false
-                }
-                Button("hotel") {
-                    filterTag = .hotel
-                    //showingFilterOptions = false
-                }
-                Button("other") {
-                    filterTag = .other
-                    //showingFilterOptions = false
-                }
-            } message: {
-                Text("Select tag to filter photos")
             }
             .sheet(isPresented: $isAddingItem) {
                 AddView(places: places, searchModel: SearchViewModel())

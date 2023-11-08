@@ -18,12 +18,12 @@ struct SplashView: View {
             } else {
                 ZStack {
                     GeometryReader { geo in
-                                Image("background")
+                        Image("background")
                             .resizable()
-                                            .aspectRatio(contentMode: .fill)
-                                            //.frame(width: geo.size.width, height: geo.size.height * 2/3) // Adjust the frame size
-                                            //.clipped()
-                            }
+                            .scaledToFit()
+                            .frame(width: geo.size.width, height: geo.size.height)
+                            //.aspectRatio(contentMode: .fill)
+                    }
                     VStack {
                         Text("All Those Places")
                             .foregroundColor(.white)
@@ -39,9 +39,9 @@ struct SplashView: View {
                 }
             }
         }
-        .edgesIgnoringSafeArea(.all)//.ignoresSafeArea()
+        .edgesIgnoringSafeArea(.all)
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4) { //2.5
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { 
                 withAnimation {
                     self.isActive = true
                 }

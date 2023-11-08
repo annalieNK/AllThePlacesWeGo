@@ -15,9 +15,7 @@ struct URLImagePicker: View {
     
     @ObservedObject var place: Place
     
-    //@Binding var imageURL: URL?
     @State private var editedURLImageString = ""
-    //@State private var editedURLImageString: URL
     
     var body: some View {
         NavigationView {

@@ -18,17 +18,14 @@ struct AddressRow: View {
     
     
     var body: some View {
-//        Button { }
         NavigationLink {
             SearchView(places: places, address: address)
         } label: {
-//            Button { dismiss() } label: {
                 VStack(alignment: .leading) {
                     Text(address.title)
                     Text(address.subtitle)
                         .font(.caption)
                 }
-//            }
         }
         .padding(.bottom, 2)
     }
