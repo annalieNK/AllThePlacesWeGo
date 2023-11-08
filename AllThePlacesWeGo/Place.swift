@@ -146,6 +146,12 @@ class Place: Identifiable, Codable, Equatable, ObservableObject {
         people.remove(atOffsets: objectsToDelete)
     }
     
+    func deleteItem(item: Place) {
+        if let index = people.firstIndex(where: { $0.id == item.id }) {
+            people.remove(at: index)
+        }
+    }
+    
     func toggle(_ place: Place) {
         objectWillChange.send()
         place.isVisited.toggle()

@@ -23,15 +23,6 @@ class MapViewModel: ObservableObject {
         request.naturalLanguageQuery = subTitle.contains(title)
         ? subTitle : title + ", " + subTitle
         
-//        let response = MKLocalSearch(request: request)
-//        response.start { (response, error) in
-//            if let error = error {
-//                print("Error performing local search: \(error.localizedDescription)")
-//            } else if let firstMapItem = response?.mapItems.first {
-//                let placemark = firstMapItem.placemark
-//            }
-//        }
-        
         Task {
             let response = try await MKLocalSearch(request: request).start()
             await MainActor.run {

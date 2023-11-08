@@ -21,6 +21,7 @@ struct DetailViewNV: View {
     
     @State private var editedURLString = ""
     @State private var isURLImagePickerPresented = false
+    @State private var showingDeleteAlert = false
 
     let urlString = "https://www.hackingwithswift.com"
     @State private var text = "https://www.hackingwithswift.com"
@@ -70,40 +71,22 @@ struct DetailViewNV: View {
                                     .font(.caption)
                                     .foregroundColor(.white)
                             }
-                            
-//                            Image(systemName: "arrowtriangle.down.fill")
-//                                .font(.caption)
-//                                .style(for: place)
-//                                .offset(x: 0, y: -5)
                         }
                     }
                 }
-                                
-                // create a button to add to or remove from Favorites
-                //                Button(favorites.contains(prospect) ? "Remove from Favorites" : "Add to Favorites") {
-                //                    if favorites.contains(prospect) {
-                //                        favorites.remove(prospect)
-                //                    } else {
-                //                        favorites.add(prospect)
-                //                    }
-                //                }
-                //                .buttonStyle(.borderedProminent)
-                //                .padding()
-                //                .disabled(prospect.isContacted == false)
-                //                MapAnnotation(coordinate: prospect.coordinate){
-                //                    ZStack {
-                //                        Image(systemName: "star.circle") //"pin.fill"
-                //                            .resizable()
-                //                            .style(for: prospect) //.foregroundColor(.red)
-                //                            .frame(width: 44, height: 44)
-                //                            .background(.white)
-                //                            .clipShape(Circle())
-                //                    }
-                //                }
-                //            }
             }
-//            .edgesIgnoringSafeArea(.top)
+            //.edgesIgnoringSafeArea(.top)
             .navigationBarTitle(place.locationName, displayMode: .inline)
+            .alert("Delete location", isPresented: $showingDeleteAlert) {
+                Button(action: {
+                    places.deleteItem(item: place)
+                }) {
+                    Text("Delete")
+                }
+                Button("Cancel", role: .cancel) { }
+                    } message: {
+                        Text("Are you sure to delete this location from your collection?")
+                    }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     VStack {
@@ -128,7 +111,6 @@ struct DetailViewNV: View {
                                 Text("Add image")
                             }
 //                            Button(action: {
-//                                
 //                            }) {
 //                                Text("Add link")
 //                            }
@@ -137,26 +119,20 @@ struct DetailViewNV: View {
                         }
                     }
                 }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        showingDeleteAlert = true
+                    } label: {
+                        Label("Delete this location", systemImage: "trash")
+                    }
+                }
             }
             .sheet(isPresented: $isURLImagePickerPresented) {
                 URLImagePicker(place: place)
             }
-            //.onAppear(perform: loadLocation)
-            //            .onChange(of: prospects.people) {newCoordinate in
-            //               if let result = newCoordinate.first {
-            //                  region.center = result.coordinate
-            //               }
-            //            }
-            .environmentObject(Favorites()) //favorites
+            .environmentObject(Favorites())
         }
     }
-    
-    //    func loadLocation() {
-    //        prospects.region.center = prospect.coordinate
-    //        prospects.region.span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
-    //    }
-    
-    
 }
 
 struct DetailViewNV_Previews: PreviewProvider {

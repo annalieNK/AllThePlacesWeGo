@@ -20,9 +20,9 @@ struct SplashView: View {
                     GeometryReader { geo in
                         Image("background")
                             .resizable()
-                            .scaledToFit()
-                            .frame(width: geo.size.width, height: geo.size.height)
-                            //.aspectRatio(contentMode: .fill)
+                            //.scaledToFit()
+                            //.frame(width: geo.size.width, height: geo.size.height)
+                            .aspectRatio(contentMode: .fill)
                     }
                     VStack {
                         Text("All Those Places")
