@@ -86,7 +86,7 @@ struct DetailViewNV: View {
                 Button("Cancel", role: .cancel) { }
                     } message: {
                         Text("Are you sure to delete this location from your collection?")
-                    }
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     VStack {

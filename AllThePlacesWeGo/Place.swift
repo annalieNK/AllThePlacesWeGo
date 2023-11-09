@@ -77,7 +77,7 @@ class Place: Identifiable, Codable, Equatable, ObservableObject {
 }
 
 @MainActor class Places: ObservableObject {
-    @Published private(set) var people: [Place]
+    @Published private(set) var items: [Place]
     @Published var selectedPlace: Place?
     
     //@Published var selectedCoordinate: CLLocationCoordinate2D?
@@ -98,15 +98,15 @@ class Place: Identifiable, Codable, Equatable, ObservableObject {
     init() {
         do {
             let data = try Data(contentsOf: savePath)
-            people = try JSONDecoder().decode([Place].self, from: data)
+            items = try JSONDecoder().decode([Place].self, from: data)
         } catch {
-            people = []
+            items = []
         }
     }
     
     func save() {
         do {
-            let data = try JSONEncoder().encode(self.people)
+            let data = try JSONEncoder().encode(self.items)
             try data.write(to: savePath, options: [.atomic, .completeFileProtection])
         } catch {
             print("Unable to save data")
@@ -115,13 +115,13 @@ class Place: Identifiable, Codable, Equatable, ObservableObject {
     
     func add(latitude: Double, longitude: Double, locationName: String, tag: String, urlImageString: String) {
         let newPlace = Place(latitude: latitude, longitude: longitude, locationName: locationName, tag: tag, urlImageString: urlImageString)
-        people.append(newPlace)
+        items.append(newPlace)
         save()
     }
     
     func update(item: Place, withName urlImageString: String) {
-        if let index = people.firstIndex(where: { $0.id == item.id }) {
-            people[index].urlImageString = urlImageString
+        if let index = items.firstIndex(where: { $0.id == item.id }) {
+            items[index].urlImageString = urlImageString
             save()
         }
     }
@@ -138,17 +138,17 @@ class Place: Identifiable, Codable, Equatable, ObservableObject {
         for offset in offsets {
             let item = inputArray[offset]
 
-            if let index = people.firstIndex(of: item) {
+            if let index = items.firstIndex(of: item) {
                 objectsToDelete.insert(index)
             }
         }
 
-        people.remove(atOffsets: objectsToDelete)
+        items.remove(atOffsets: objectsToDelete)
     }
     
     func deleteItem(item: Place) {
-        if let index = people.firstIndex(where: { $0.id == item.id }) {
-            people.remove(at: index)
+        if let index = items.firstIndex(where: { $0.id == item.id }) {
+            items.remove(at: index)
         }
     }
     

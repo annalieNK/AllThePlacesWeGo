@@ -66,37 +66,6 @@ struct AddView: View {
             }
             //.edgesIgnoringSafeArea(.bottom)
             .navigationBarTitle("Discover", displayMode: .inline)
-            
-            //                Map(coordinateRegion: $region, annotationItems: searchResults) { mapItem in
-            //                    MapAnnotation(coordinate: mapItem.placemark.coordinate) {
-            //                        ZStack {
-            //                            Image(systemName: "star.circle")
-            //                                .resizable()
-            //                                .foregroundColor(.red)
-            //                                .frame(width: 44, height: 44)
-            //                                .background(.white)
-            //                                .clipShape(Circle())
-            //                        }
-            //                        .onTapGesture {
-            //                            selectedCoordinate = mapItem.placemark.coordinate //?? CLLocationCoordinate2D(latitude: -38, longitude: -123)
-            //                            showingSaveConfirmation = true
-            //                        }
-            //                    }
-            //                }
-            //Map(coordinateRegion: $map)
-            //            }
-            //            //.edgesIgnoringSafeArea(.bottom)
-            //            .navigationBarTitle("Add to collection")
-            //            .confirmationDialog("Add this location to your collection", isPresented: $showingSaveConfirmation) {
-            //                Button("Add location") {
-            //                    guard let selectedCoordinate = selectedCoordinate else { return }
-            //                    prospects.add(latitude: selectedCoordinate.latitude, longitude: selectedCoordinate.longitude, locationName: searchModel.searchText)
-            //                    dismiss()
-            //                }
-            //                Button("Cancel", role: .cancel) { }
-            //            } message: {
-            //                Text("Add this location to your collection")
-            //            }
         }
     }
     
@@ -117,15 +86,6 @@ struct AddView: View {
             }
         }
     }
-    
-    //    private var saveButtonToolbar: some View {
-    //        Button("Save") {
-    //            guard let selectedCoordinate = selectedCoordinate else { return }
-    //            //print(searchText)
-    //            prospects.add(latitude: selectedCoordinate.latitude, longitude: selectedCoordinate.longitude, locationName: prospects.searchText)
-    //            dismiss()
-    //        }
-    //    }
 }
 
 struct AddView_Previews: PreviewProvider {

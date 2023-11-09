@@ -178,29 +178,29 @@ struct MapLayout: View {
     var filteredItems: [Place] {
         switch filterTag {
         case .default:
-            return places.people
+            return places.items
         case .beach:
-            return places.people.filter { $0.tag == "beach"}
+            return places.items.filter { $0.tag == "beach"}
         case .hiking:
-            return places.people.filter { $0.tag == "hiking"}
+            return places.items.filter { $0.tag == "hiking"}
         case .familyActivity:
-            return places.people.filter { $0.tag == "family activity"}
+            return places.items.filter { $0.tag == "family activity"}
         case .picnic:
-            return places.people.filter { $0.tag == "picnic"}
+            return places.items.filter { $0.tag == "picnic"}
         case .winery:
-            return places.people.filter { $0.tag == "winery"}
+            return places.items.filter { $0.tag == "winery"}
         case .restaurant:
-            return places.people.filter { $0.tag == "restaurant"}
+            return places.items.filter { $0.tag == "restaurant"}
         case .snowActivity:
-            return places.people.filter { $0.tag == "snow activity"}
+            return places.items.filter { $0.tag == "snow activity"}
         case .culturalActivity:
-            return places.people.filter { $0.tag == "cultural activity"}
+            return places.items.filter { $0.tag == "cultural activity"}
         case .campground:
-            return places.people.filter { $0.tag == "campground"}
+            return places.items.filter { $0.tag == "campground"}
         case .hotel:
-            return places.people.filter { $0.tag == "hotel"}
+            return places.items.filter { $0.tag == "hotel"}
         case .other:
-            return places.people.filter { $0.tag == "other"}
+            return places.items.filter { $0.tag == "other"}
         }
     }
 }

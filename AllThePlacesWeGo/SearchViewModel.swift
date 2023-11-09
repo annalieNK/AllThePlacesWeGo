@@ -23,25 +23,6 @@ class SearchViewModel: NSObject, ObservableObject {
         guard searchText.isEmpty == false else { return }
         localSearchCompleter.queryFragment = searchText
     }
-    
-    
-    //
-    //    func performSearch() {
-    //        let request = MKLocalSearch.Request()
-    //        request.naturalLanguageQuery = searchText
-    //        request.region = region
-    //
-    //        let search = MKLocalSearch(request: request)
-    //        search.start { response, error in
-    //            if let response = response {
-    //                searchResults = response.mapItems
-    //
-    //                if let firstResult = response.mapItems.first {
-    //                    region.center = firstResult.placemark.coordinate
-    //                }
-    //            }
-    //        }
-    //    }
 }
 
 extension SearchViewModel: MKLocalSearchCompleterDelegate {

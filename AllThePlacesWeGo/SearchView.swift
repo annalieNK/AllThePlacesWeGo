@@ -21,7 +21,6 @@ struct SearchView: View {
     
     @State private var selectedCoordinate: CLLocationCoordinate2D?
     @State private var showingSaveConfirmation = false
-    //    @State private var isSaveItem = false
     
     @State private var tag = ""
     @State private var icon = ""
@@ -47,58 +46,9 @@ struct SearchView: View {
                 coordinateRegion: $mapModel.region,
                 annotationItems: mapModel.annotationItems) { item in
                     MapMarker(coordinate: item.coordinate)
-                }//,
-            //                annotationContent: { item in
-            //                    MapAnnotation(coordinate: item.coordinate) {
-            //                        VStack {
-            //                            Menu {
-            //                                Button(action: {
-            //                                    tag = "beach"
-            //                                    //icon = "beach.umbrella.fill"
-            //                                    selectedCoordinate = item.coordinate
-            //                                }) {
-            //                                    Label("beach", systemImage: "beach.umbrella.fill")
-            //                                }
-            //                                Button(action: {
-            //                                    tag = "hiking"
-            //                                    //icon = "figure.hiking"
-            //                                    selectedCoordinate = item.coordinate
-            //                                }) {
-            //                                    Label("hiking", systemImage: "figure.hiking")
-            //                                }
-            //                            } label: {
-            //                                VStack(spacing: 0) {
-            //                                    Image(systemName: "mappin.circle.fill")
-            //                                        .font(.title)
-            //                                        .foregroundColor(.red)
-            //
-            //                                    Image(systemName: "arrowtriangle.down.fill")
-            //                                        .font(.caption)
-            //                                        .foregroundColor(.red)
-            //                                        .offset(x: 0, y: -5)
-            //                                }
-            //                                //PlaceAnnotationView(title: "", symbol: "mappin")
-            ////                                ZStack {
-            ////                                    Image(systemName: "star.circle")
-            ////                                        .resizable()
-            ////                                        .foregroundColor(.red)
-            ////                                        .frame(width: 44, height: 44)
-            ////                                        .background(.white)
-            ////                                        .clipShape(Circle())
-            ////                                }
-            //
-            //                                .onTapGesture {
-            //                                    selectedCoordinate = item.coordinate
-            //                                    //showingSaveConfirmation = true
-            //                                }
-            //                            }
-            //                        }
-            //                    }
-            //                }
-            //            )
+                }
         }
-        //}
-        .frame(width: 400, height: 650) // Set the desired width and height
+        .frame(width: 400, height: 650) 
         .cornerRadius(10)
         .onAppear {
             self.mapModel.getPlace(from: address)
