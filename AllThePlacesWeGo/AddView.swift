@@ -65,7 +65,7 @@ struct AddView: View {
                 //.listStyle(.plain)
             }
             //.edgesIgnoringSafeArea(.bottom)
-            .navigationBarTitle("Add to collection", displayMode: .inline)
+            .navigationBarTitle("Discover", displayMode: .inline)
             
             //                Map(coordinateRegion: $region, annotationItems: searchResults) { mapItem in
             //                    MapAnnotation(coordinate: mapItem.placemark.coordinate) {
