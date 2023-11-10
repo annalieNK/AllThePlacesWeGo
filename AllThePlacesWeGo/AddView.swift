@@ -40,23 +40,27 @@ struct AddView: View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Search for a location", text: $searchModel.searchText)//, onCommit: performSearch)
-                    //.padding()
-                        .autocorrectionDisabled()
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    //.background(Color.init(uiColor: .systemBackground))
-                        .onReceive(
-                            searchModel.$searchText.debounce(
-                                for: .seconds(0.5), //1
-                                scheduler: DispatchQueue.main)
-                        ) {
-                            searchModel.searchAddress($0)
-                        }
-                        .overlay {
-                            ClearButton(text: $searchModel.searchText)
-                                .padding(.trailing)
-                                .padding(.top, 8)
-                        }
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+                        TextField("Search for a location", text: $searchModel.searchText)//, onCommit: performSearch)
+                        //.padding()
+                            .autocorrectionDisabled()
+                        //.textFieldStyle(RoundedBorderTextFieldStyle())
+                        //.background(Color.init(uiColor: .systemBackground))
+                            .onReceive(
+                                searchModel.$searchText.debounce(
+                                    for: .seconds(0.5), //1
+                                    scheduler: DispatchQueue.main)
+                            ) {
+                                searchModel.searchAddress($0)
+                            }
+                            .overlay {
+                                ClearButton(text: $searchModel.searchText)
+                                    .padding(.trailing)
+                                    .padding(.top, 8)
+                            }
+                    }
                     List(self.searchModel.results) { address in
                         AddressRow(places: places, address: address)
                         //.listRowBackground(backgroundColor)

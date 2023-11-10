@@ -18,15 +18,19 @@ struct AddressRow: View {
     
     
     var body: some View {
-        NavigationLink {
-            SearchView(places: places, address: address)
-        } label: {
-                VStack(alignment: .leading) {
-                    Text(address.title)
-                    Text(address.subtitle)
-                        .font(.caption)
+        Form {
+            Section {
+                NavigationLink {
+                    SearchView(places: places, address: address)
+                } label: {
+                    VStack(alignment: .leading) {
+                        Text(address.title)
+                        Text(address.subtitle)
+                            .font(.caption)
+                    }
                 }
+                //.padding(.bottom, 2)
+            }
         }
-        .padding(.bottom, 2)
     }
 }
