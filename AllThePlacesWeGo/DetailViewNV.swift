@@ -29,7 +29,6 @@ struct DetailViewNV: View {
     var body: some View {
         NavigationView {
             VStack { 
-                Spacer()
                 if let imageURL = place.imageURL {
                     GeometryReader { geo in
                         AsyncImage(url: imageURL) { image in
@@ -75,7 +74,7 @@ struct DetailViewNV: View {
                     }
                 }
             }
-            //.edgesIgnoringSafeArea(.top)
+            .padding(.top, 40)
             .navigationBarTitle(place.locationName, displayMode: .inline)
             .alert("Delete location", isPresented: $showingDeleteAlert) {
                 Button(action: {

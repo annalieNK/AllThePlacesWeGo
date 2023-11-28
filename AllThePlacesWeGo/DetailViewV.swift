@@ -74,6 +74,7 @@ struct DetailViewV: View {
                     }
                 }
             }
+            .padding(.top, 40)
             .navigationBarTitle(place.locationName, displayMode: .inline)
             .alert("Delete location", isPresented: $showingDeleteAlert) {
                 Button(action: {

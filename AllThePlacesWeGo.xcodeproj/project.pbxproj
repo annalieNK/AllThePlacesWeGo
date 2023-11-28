@@ -58,6 +58,7 @@
 		345366102ADF12F100A709AA /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 		345366162ADF2ABC00A709AA /* DetailViewNV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewNV.swift; sourceTree = "<group>"; };
 		3453661A2ADF2BF400A709AA /* DetailViewV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewV.swift; sourceTree = "<group>"; };
+		34D5AC142B167BF1002E5C92 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +104,7 @@
 				345365FE2ADF11A200A709AA /* AddView.swift */,
 				345366162ADF2ABC00A709AA /* DetailViewNV.swift */,
 				3453661A2ADF2BF400A709AA /* DetailViewV.swift */,
+				34D5AC142B167BF1002E5C92 /* README.md */,
 				345366082ADF129900A709AA /* SearchViewModel.swift */,
 				345366002ADF11F500A709AA /* MapViewModel.swift */,
 				345366062ADF125100A709AA /* SearchView.swift */,
