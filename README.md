@@ -8,8 +8,8 @@ The app can be downloaded upon request through TestFlight.
 
 The below figures show a preview of the app.
 
+Splash View |  Content View | Detail View | Add Place        
 :-------------------------:|:-------------------------:|:-------------------
 ![](./Screenshots/SplashView.png) | ![](./Screenshots/ContentView.png) | ![](./Screenshots/LocationNames.png) | ![](./Screenshots/Filter.png)
-![](./Screenshots/SearchBar.png) | ![](./Screenshots/AddView.png)
-![](./Screenshots/DetailViewNV.png) | ![](./Screenshots/DetailViewV.png)
-
+<!--![](./Screenshots/SearchBar.png) | ![](./Screenshots/AddView.png)-->
+<!--![](./Screenshots/DetailViewNV.png) | ![](./Screenshots/DetailViewV.png)-->
