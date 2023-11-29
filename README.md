@@ -12,10 +12,6 @@ Splash View | Content View | Content View + Location Names | Content View + Filt
 :----------:|:------------:|:-----------------------------:|:--------------------------
 ![](./Screenshots/SplashView.png) | ![](./Screenshots/ContentView.png) | ![](./Screenshots/LocationNames.png) | ![](./Screenshots/Filter.png)
 
-Search Bar View | Add Place View   
-:--------------:|:--------------
-![](./Screenshots/SearchBar.png) | ![](./Screenshots/AddView.png)
-
-Detail View Not Visited  | Detail View Visited      
-:-----------------------:|:-------------------
-![](./Screenshots/DetailViewNV.png) | ![](./Screenshots/DetailViewV.png)
+Search Bar View | Add Place View | Detail View Not Visited  | Detail View Visited
+:--------------:|:--------------:|:------------------------:|:-------------------
+![](./Screenshots/SearchBar.png) | ![](./Screenshots/AddView.png) | ![](./Screenshots/DetailViewNV.png) | ![](./Screenshots/DetailViewV.png)
